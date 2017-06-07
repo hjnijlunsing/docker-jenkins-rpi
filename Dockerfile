@@ -7,7 +7,9 @@ ENV JENKINS_HOME /var/jenkins_home
 RUN groupadd -r jenkins && useradd -d $JENKINS_HOME jenkins -g jenkins
 RUN chown -R jenkins /var/jenkins_home
 
-RUN apt-get update && apt-get install -y wget nodejs npm git unzip curl
+RUN apt-get update && apt-get install -y wget nodejs npm git unzip curl software-properties-common
+RUN apt-add-repository ppa:ansible/ansible
+RUN apt-get update && apt-get install ansible
 RUN curl -sSL https://get.docker.com | sh
 
 RUN mkdir /var/jenkins_work
