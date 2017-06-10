@@ -10,7 +10,7 @@ RUN chown -R jenkins /var/jenkins_home
 RUN apt-get update && apt-get install -y wget nodejs npm git unzip curl software-properties-common
 RUN echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main" >>  /etc/apt/sources.list
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
-RUN apt-get update && apt-get install -y ansible ssh-client iproute
+RUN apt-get update && apt-get install -y ansible ssh-client
 RUN curl -sSL https://get.docker.com | sh
 
 RUN mkdir /var/jenkins_work
